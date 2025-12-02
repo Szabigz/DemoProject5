@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DemoProject5.PersonCard">
+  <Grid Margin="15" Background="Gray">
+	  <Grid.RowDefinitions>
+		  <RowDefinition/>
+		  <RowDefinition/>
+		  <RowDefinition/>
+		  <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+		  <ColumnDefinition Width="5*"/>
+		  <ColumnDefinition Width="5*"/>
+		  <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+	  <StackPanel>
+		  <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
+		<Label Grid.Row="0" Grid.Column="1" Content="{Binding Name}"/>
+
+		<Label Grid.Row="0" Grid.Column="0" Content="Age:"/>
+		<Label Grid.Row="0" Grid.Column="1" Content="{Binding Age}"/>
+
+		<Label Grid.Row="0" Grid.Column="0" Content="Gender:"/>
+		<Label Grid.Row="0" Grid.Column="1" Content="{Binding Gender}"/>
+
+		<Label Grid.Row="0" Grid.Column="0" Content="Color:"/>
+		<Label Grid.Row="0" Grid.Column="1" Content="{Binding Color}"/>
+
+	  </StackPanel>
+	  
+	  <Button Grid.Row="0" Grid.Column="2" Content="X" Command="{Binding DeleteCommand}"/>
+  </Grid>
+</UserControl>

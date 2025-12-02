@@ -1,0 +1,54 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DemoProject5.ViewModels"
+             xmlns:card="clr-namespace:DemoProject5"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="DemoProject5.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Name:"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding NameInput}"/>
+        
+        <Label Grid.Column="0" Grid.Row="1" Content="Age:"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding AgeInput}"/>
+    
+        <Label Grid.Column="0" Grid.Row="2" Content="Gender:"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding GenderInput}"/>
+    
+        <Label Grid.Column="0" Grid.Row="3" Content="Color:"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding ColorInput}"/>
+    
+        <Button Grid.Column="0" Grid.Row="4" Content="Add" Command="{Binding AddPersonCommand}"/>
+    
+        <ScrollViewer Grid.Column="2" Grid.Row="0" Grid.RowSpan="4">
+		  <StackPanel>
+			  <ItemsControl ItemsSource="{Binding People}">
+				  <ItemsControl.ItemTemplate>
+					  <DataTemplate>
+				          <card:PersonCard/> 
+                      </DataTemplate>
+				  </ItemsControl.ItemTemplate>
+			  </ItemsControl>
+		  </StackPanel>
+	  </ScrollViewer>
+    </Grid>
+</UserControl>
